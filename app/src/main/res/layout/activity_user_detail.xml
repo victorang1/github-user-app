@@ -9,262 +9,268 @@
             type="com.example.githubuserapp.model.GithubUser" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dimen_24dp"
-        tools:context=".detail.UserDetailActivity"
         >
-        
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civ_avatar"
-            android:layout_width="@dimen/image_lg_size"
-            android:layout_height="@dimen/image_lg_size"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
 
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            app:layout_constraintTop_toBottomOf="@id/civ_avatar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:fontFamily="serif"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="@dimen/text_24sp"
-            android:text="@{user.username}"
-            tools:text="victorang1"
-            />
-
-        <TextView
-            android:id="@+id/tv_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_username"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:fontFamily="sans-serif"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_24sp"
-            android:text="@{user.name}"
-            tools:text="Victor Ang"
-            />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_follow"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            android:layout_marginLeft="@dimen/dimen_2dp"
-            android:layout_marginRight="@dimen/dimen_2dp"
-            app:cardElevation="@dimen/dimen_4dp"
-            app:cardCornerRadius="@dimen/dimen_8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_user"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:padding="@dimen/dimen_24dp"
+            tools:context=".detail.UserDetailActivity"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_avatar"
+                android:layout_width="@dimen/image_lg_size"
+                android:layout_height="@dimen/image_lg_size"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                app:layout_constraintTop_toBottomOf="@id/civ_avatar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:fontFamily="serif"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_24sp"
+                android:text="@{user.username}"
+                tools:text="victorang1"
+                />
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_username"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:fontFamily="sans-serif"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_24sp"
+                android:text="@{user.name}"
+                tools:text="Victor Ang"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_follow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                android:layout_marginLeft="@dimen/dimen_2dp"
+                android:layout_marginRight="@dimen/dimen_2dp"
+                app:cardElevation="@dimen/dimen_4dp"
+                app:cardCornerRadius="@dimen/dimen_8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_user"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 >
-                
-                <TextView
-                    android:id="@+id/tv_followers"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="@dimen/dimen_4dp"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/tv_followings"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="@string/followers"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_18sp"
-                    />
 
-                <TextView
-                    android:id="@+id/tv_followings"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="@dimen/dimen_4dp"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/tv_followers"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:text="@string/following"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_followers_value"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="@dimen/dimen_8dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_followers"
-                    app:layout_constraintLeft_toLeftOf="@id/tv_followers"
-                    app:layout_constraintRight_toRightOf="@id/tv_followers"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="@{user.followers}"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_16sp"
-                    tools:text="3500"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_followings_value"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="@dimen/dimen_8dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_followings"
-                    app:layout_constraintLeft_toLeftOf="@id/tv_followings"
-                    app:layout_constraintRight_toRightOf="@id/tv_followings"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="@{user.followers}"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_16sp"
-                    tools:text="3500"
-                    />
-
-                <View
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/separator_size"
-                    android:background="@android:color/black"
-                    app:layout_constraintTop_toBottomOf="@id/barrier"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="parent"
-                    />
-
-                <View
-                    android:layout_width="@dimen/separator_size"
-                    android:layout_height="0dp"
-                    android:background="@android:color/black"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/tv_followers"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_followers"
-                    app:layout_constraintRight_toLeftOf="@id/tv_followings"
-                    />
-
-                <View
-                    android:layout_width="@dimen/separator_size"
-                    android:layout_height="0dp"
-                    android:background="@android:color/black"
-                    app:layout_constraintTop_toBottomOf="@id/barrier"
-                    app:layout_constraintLeft_toRightOf="@id/tv_followers_value"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/tv_followings_value"
-                    />
-
-                <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:barrierDirection="bottom"
-                    app:constraint_referenced_ids="tv_followers,tv_followers"
-                    />
-                
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    >
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tv_followers"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_8dp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/tv_followings"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/followers"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_18sp"
+                        />
 
-        <TextView
-            android:id="@+id/tv_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            app:layout_constraintTop_toBottomOf="@id/cv_follow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@string/company"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_24sp"
-            android:textStyle="bold"
-            />
+                    <TextView
+                        android:id="@+id/tv_followings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_8dp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_followers"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="@string/following"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_18sp"
+                        />
 
-        <TextView
-            android:id="@+id/tv_company_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_company"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@{user.company}"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_18sp"
-            tools:text="PT. Company Indonesia"
-            />
+                    <TextView
+                        android:id="@+id/tv_followers_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_followers"
+                        app:layout_constraintLeft_toLeftOf="@id/tv_followers"
+                        app:layout_constraintRight_toRightOf="@id/tv_followers"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@{user.followers}"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_16sp"
+                        tools:text="3500"
+                        />
 
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_company_value"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@string/location"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_24sp"
-            android:textStyle="bold"
-            />
+                    <TextView
+                        android:id="@+id/tv_followings_value"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_8dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_followings"
+                        app:layout_constraintLeft_toLeftOf="@id/tv_followings"
+                        app:layout_constraintRight_toRightOf="@id/tv_followings"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@{user.followers}"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_16sp"
+                        tools:text="3500"
+                        />
 
-        <TextView
-            android:id="@+id/tv_location_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_location"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@{user.location}"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_18sp"
-            tools:text="Jakarta, Indonesia"
-            />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/separator_size"
+                        android:background="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@id/barrier"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="parent"
+                        />
 
-        <TextView
-            android:id="@+id/tv_repository"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_24dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_location_value"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@string/repository"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_24sp"
-            android:textStyle="bold"
-            />
+                    <View
+                        android:layout_width="@dimen/separator_size"
+                        android:layout_height="0dp"
+                        android:background="@android:color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_followers"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_followers"
+                        app:layout_constraintRight_toLeftOf="@id/tv_followings"
+                        />
 
-        <TextView
-            android:id="@+id/tv_repository_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_repository"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="serif"
-            android:text="@{user.repository}"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_18sp"
-            tools:text="www.github.com/victorang1"
-            />
+                    <View
+                        android:layout_width="@dimen/separator_size"
+                        android:layout_height="0dp"
+                        android:background="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@id/barrier"
+                        app:layout_constraintLeft_toRightOf="@id/tv_followers_value"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/tv_followings_value"
+                        />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="tv_followers,tv_followers"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                app:layout_constraintTop_toBottomOf="@id/cv_follow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@string/company"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_24sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_company_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_company"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@{user.company}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_18sp"
+                tools:text="PT. Company Indonesia"
+                />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_company_value"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@string/location"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_24sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_location_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_location"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@{user.location}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_18sp"
+                tools:text="Jakarta, Indonesia"
+                />
+
+            <TextView
+                android:id="@+id/tv_repository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_location_value"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@string/repository"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_24sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_repository_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_repository"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="serif"
+                android:text="@{user.repository}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_18sp"
+                tools:text="100"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </layout>

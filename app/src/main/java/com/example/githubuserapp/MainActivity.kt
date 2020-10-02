@@ -1,5 +1,6 @@
 package com.example.githubuserapp
 
+import android.content.Intent
 import android.content.res.TypedArray
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.databinding.ActivityMainBinding
+import com.example.githubuserapp.detail.UserDetailActivity
 import com.example.githubuserapp.model.GithubUser
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IUserAction {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mAdapter: UserAdapter
@@ -31,8 +33,14 @@ class MainActivity : AppCompatActivity() {
         initializeDataSet()
     }
 
+    override fun onItemClick(user: GithubUser) {
+        val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
+        intent.putExtra(UserDetailActivity.GITHUB_USER_DATA, user)
+        startActivity(intent)
+    }
+
     private fun initializeAdapter() {
-        mAdapter = UserAdapter(this, arrayListOf())
+        mAdapter = UserAdapter(this, this, arrayListOf())
         val layoutManager = LinearLayoutManager(this)
         mBinding.rvUser.layoutManager = layoutManager
         mBinding.rvUser.addItemDecoration(DividerItemDecoration(this, layoutManager.orientation))

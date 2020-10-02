@@ -3,6 +3,7 @@
     <dimen name="image_lg_size">150dp</dimen>
     <dimen name="image_sm_size">48dp</dimen>
     <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
     <dimen name="dimen_12dp">12dp</dimen>
     <dimen name="dimen_8dp">8dp</dimen>
     <dimen name="dimen_4dp">4dp</dimen>

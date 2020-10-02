@@ -9,7 +9,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.githubuserapp.databinding.UserDetailItemLayoutBinding
 import com.example.githubuserapp.model.GithubUser
 
-class UserAdapter(private val context: Context, private var userList: List<GithubUser>) :
+class UserAdapter(
+    private val context: Context,
+    private var mCallback: IUserAction,
+    private var userList: List<GithubUser>
+) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -39,6 +43,7 @@ class UserAdapter(private val context: Context, private var userList: List<Githu
 
         fun bind(githubUser: GithubUser) {
             itemBinding.user = githubUser
+            itemBinding.clContainer.setOnClickListener { mCallback.onItemClick(githubUser) }
             Glide.with(context)
                 .load(githubUser.avatar)
                 .apply(RequestOptions.errorOf(R.drawable.ic_person))
