@@ -1,6 +1,5 @@
 package com.example.githubuserapp.model
 
-import android.graphics.Bitmap
 import android.os.Parcelable
 import androidx.databinding.BaseObservable
 import kotlinx.android.parcel.Parcelize
@@ -12,7 +11,7 @@ data class GithubUser(
     val location: String,
     val repository: String,
     val company: String,
-    val followers: Int,
-    val following: Int,
-    val avatar: Bitmap
+    val followers: String,
+    val following: String,
+    val avatar: Int
 ) : BaseObservable(), Parcelable
